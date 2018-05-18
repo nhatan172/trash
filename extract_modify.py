@@ -517,31 +517,31 @@ def extract(
 				else :
 					law = None
 				temp_item = re.search(r'(Khoản|khoản)\s(\w{1,5}|\d{1,5})',content[extract.span()[0]:extract.span()[1]])
-				if(temp_item is not None):
-					item = temp_item.group()[8:]
-				else :
-				    item = None
-				temp_point = re.search(r'(đ|Đ)iểm\s(\w{1,5}|\d{1,5})',content[extract.span()[0]:extract.span()[1]])
-				if(temp_point is not None):
-				    point = temp_point.group()[8:]
-				else :
-				    point = None
-				yield[
-				    law_id,
-				    position,
-					type_modify,
-				    None,
-				    None,
-				    None,
-				    law,
-				    item,
-				    point,
-				    None,
-				    None,
-				    None,
-				    numerical_symbol,
-				    released_date
-				]
+			if(temp_item is not None):
+				item = temp_item.group()[8:]
+			else :
+			    item = None
+			temp_point = re.search(r'(đ|Đ)iểm\s(\w{1,5}|\d{1,5})',content[extract.span()[0]:extract.span()[1]])
+			if(temp_point is not None):
+			    point = temp_point.group()[8:]
+			else :
+			    point = None
+			yield[
+			    law_id,
+			    position,
+				type_modify,
+			    None,
+			    None,
+			    None,
+			    law,
+			    item,
+			    point,
+			    None,
+			    None,
+			    None,
+			    numerical_symbol,
+			    released_date
+			]
 		else :
 		    yield[
 		        law_id,
